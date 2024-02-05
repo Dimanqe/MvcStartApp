@@ -1,4 +1,4 @@
-using CoreStartApp.Middlewares;
+using MVCStartApp.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +33,7 @@ namespace MvcStartApp
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection));
             services.AddControllersWithViews();
             services.AddScoped<IBlogRepository, BlogRepository>();
-            //services.AddScoped<ILoggingRepository, LoggingRepository>();
+            services.AddScoped<ILoggingRepository, LoggingRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

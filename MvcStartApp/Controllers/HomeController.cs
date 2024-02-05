@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MvcStartApp.Models;
 using MvcStartApp.Models.Db;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 
@@ -25,48 +20,14 @@ namespace MvcStartApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //Добавим создание нового пользователя
-            //var newUser = new User()
-            //{
-            //    Id = Guid.NewGuid(),
-            //    FirstName = "Andrey",
-            //    LastName = "Petrov",
-            //    JoinDate = DateTime.Now
-            //};
-
-            //// Добавим в базу
-            //await _repo.AddUser(newUser);
-
-            //// Выведем результат
-            //Console.WriteLine($"User with id {newUser.Id}, named {newUser.FirstName} was successfully added on {newUser.JoinDate}");
-
             return View();
         }
 
-        //public async Task<IActionResult> Authors()
-        //{
-        //    var authors = await _repo.GetUsers();
-
-        //    Console.WriteLine("See all blog authors:");
-        //    foreach (var author in authors)
-        //        //Console.WriteLine($"Author name {author.FirstName}, joined {author.JoinDate}");
-        //    Console.WriteLine($"Author with id {author.Id}, named {author.FirstName}, joined {author.JoinDate}");
-
-        //    return View();
-        //}
-
-
         public async Task<IActionResult> Authors()
-        {
-            //Console.WriteLine("See all blog authors:");
-            //var authors = await _repo.GetUsers();
-            //foreach (var author in authors)
-            //    //Console.WriteLine($"Author name {author.FirstName}, joined {author.JoinDate}");
-            //    Console.WriteLine($"Author with id {author.Id}, named {author.FirstName}, joined {author.JoinDate}");
+        {            
             var authors = await _repo.GetUsers();
             return View(authors);
         }
-
         public IActionResult Privacy()
         {
             return View();

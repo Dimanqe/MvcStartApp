@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MvcStartApp.Models.Db
@@ -33,5 +35,6 @@ namespace MvcStartApp.Models.Db
             // Получим всех активных пользователей
             return await _context.Users.ToArrayAsync();
         }
+       
     }
 }
